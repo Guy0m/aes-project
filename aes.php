@@ -146,7 +146,7 @@ array(0x43, 0x5a, 0x31, 0x37),
 array(0xf6, 0x30, 0x98, 0x07),
 array(0xa8, 0x8d, 0xa2, 0x34),);
 
-$cle = array(			// exemple cle clair par defaut
+$key = array(			// exemple key clair par defaut
 array(0x2b, 0x28, 0xab, 0x09),
 array(0x7e, 0xae, 0xf7, 0xcf),
 array(0x15, 0xd2, 0x15, 0x4f),
@@ -155,10 +155,10 @@ array(0x16, 0xa6, 0x88, 0x3c),);
 if (isset($_POST['send'])) {
 	
 	$message = $_POST['message'];
-	$cleachiffre = $_POST['key'];
+	$plaintextkey = $_POST['key'];
 
 	$matrix_msg = array(array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0));	
-	$cle = array(array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0));
+	$key = array(array(0,0,0,0),array(0,0,0,0),array(0,0,0,0),array(0,0,0,0));
 
 	$i=0;
 	$j=0;
@@ -169,8 +169,8 @@ if (isset($_POST['send'])) {
 				
 				$i=$i+1;
 			}
-			if($j < strlen($cleachiffre)){
-				$cle[$c][$r]=hexdec(String2Hex($cleachiffre[$j]));	
+			if($j < strlen($plaintextkey)){
+				$key[$c][$r]=hexdec(String2Hex($plaintextkey[$j]));	
 				$j=$j+1;
 			}
 		}
@@ -190,7 +190,7 @@ echo '<td align="center">Input</td><td align="center">';
 display($matrix_msg);
 echo '</td><td></td><td></td><td></td>';
 echo '<td align="center">';
-display($cle);
+display($key);
 echo '</td></tr>';
 
 for($z=1;$z<=10;$z++) //rounds de 1 à 10
@@ -202,7 +202,7 @@ for($z=1;$z<=10;$z++) //rounds de 1 à 10
 	for($r=0;$r<count($matrix_msg);$r++){
 		echo '<tr>';
 		for($c=0;$c<count($matrix_msg[$r]);$c++){
-			$res[$r][$c]=$matrix_msg[$r][$c]^$cle[$r][$c];
+			$res[$r][$c]=$matrix_msg[$r][$c]^$key[$r][$c];
 			echo '<td align="center" >'.complete(dechex($res[$r][$c])).'</td>';
 		}
 	}
@@ -223,8 +223,8 @@ for($z=1;$z<=10;$z++) //rounds de 1 à 10
 	}
 	echo '</td><td align="center">';
 
-	$cle=keyExpansion($cle,$z); //round n
-	display($cle);
+	$key=keyExpansion($key,$z); //round n
+	display($key);
 	echo '</td></tr>';
 }
 
@@ -233,7 +233,7 @@ echo '<tr><td>Output</td><td align="center"><table border="1" >';
 for($r=0;$r<count($matrix_msg);$r++){
 	echo '<tr>';
 	for($c=0;$c<count($matrix_msg[$r]);$c++){
-		$res[$r][$c]=$res[$r][$c]^$cle[$r][$c];
+		$res[$r][$c]=$res[$r][$c]^$key[$r][$c];
 		echo '<td>'.complete(dechex($res[$r][$c])).'</td>';
 	}
 }
