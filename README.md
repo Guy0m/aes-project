@@ -1,9 +1,9 @@
 # aes-project
 
 
-Implémentation d'aes en c : Stéphane (en cours, opérationnel)
-
 Implémentation d'aes en php : Guillaume(en cours, opérationnel)
+
+Implémentation d'aes en c : Stéphane (en cours, opérationnel)
 
 Déchiffrement d'aes en c : Stéphane (en cours, opérationnel)
 
@@ -18,7 +18,3 @@ readme (en cours de rédaction)
 Pour vérifier une conversion :
 
 http://aes.online-domain-tools.com/
-
-
-
-Stéphane et Guillaume
