@@ -1,17 +1,16 @@
 # aes-project
 
 
-Implémentation d'aes en php : Guillaume(en cours, opérationnel)
+Implémentation d'aes en php :opérationnel
 
-Implémentation d'aes en c : Stéphane (en cours, opérationnel)
+Implémentation d'aes en c : opérationnel
 
-Déchiffrement d'aes en c : Stéphane (en cours, opérationnel)
+Déchiffrement d'aes en c : opérationnel
 
-Etudes des attaques : Guillaume + Stephane (en cours)
+Etudes des attaques
 
-Réalisation d'une attaque :Guillaume + Stephane (en cours d'essais)
+Réalisation d'une attaque : AES Timing Attack, opérationnel - non publiée
 
-readme (en cours de rédaction)
 
 -----------------------------
 
