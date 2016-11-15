@@ -1,7 +1,7 @@
 # aes-project
 
 
-Implémentation d'aes en php :opérationnel
+Implémentation d'aes en php : opérationnel
 
 Implémentation d'aes en c : opérationnel
 
